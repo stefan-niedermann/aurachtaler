@@ -1,0 +1,47 @@
+img, video, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 0;
+}
+blockquote::before {
+    content: "\"";
+}
+blockquote::after {
+    content: "\"";
+}
+blockquote cite {
+    font-style: italic;
+    float: right;
+    font-size: medium;
+}
+blockquote cite::before {
+    content: "\a— ";
+    white-space: pre;
+}
+
+header {
+    margin-bottom: 1rem;
+}
+
+body > nav {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+body > nav a.waves-effect {
+    display: block;
+}
+
+.container li:first-child img {
+    vertical-align: middle;
+    margin-right: .5rem;
+}
+
+::selection {
+	background: #009688;
+	color: #fff;
+}
