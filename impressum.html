@@ -21,24 +21,43 @@
     <script defer type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script defer type="text/javascript" src="js/script.js"></script>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://tracking.niedermann.it/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+
 </head>
 
 <body>
-        <ul id="slide-out" class="sidenav">
-            <li><a class="subheader">Die G'selligen Aurachtaler e. V.</a></li>
-            <li><a class="waves-effect" href="index.html"><i class="material-icons">home</i>Startseite</a>
-            </li>
-            <li><a class="waves-effect" href="termine.html"><i class="material-icons">event</i>Termine</a></li>
-            <li><a class="waves-effect" href="veranstaltungen.html"><i
-                        class="material-icons">directions_bus</i>Veranstaltungen</a></li>
-            <li><a class="waves-effect" href="vorstandschaft.html"><i class="material-icons">people</i>Vorstandschaft</a>
-            </li>
-            <li><a href="satzung.html" class="waves-effect"><i class="material-icons left">more_horiz</i>Satzung</a></li>
-            <li><a class="subheader">Rechtliches</a></li>
-            <li><a href="impressum.html" class="waves-effect grey lighten-3"><i class="material-icons left">info</i>Impressum</a></li>
-            <li><a href="datenschutzerklaerung.html" class="waves-effecttruncate"><i
-                        class="material-icons left">verified_user</i>Datenschutzerklärung</a></li>
-        </ul>
+    <ul id="slide-out" class="sidenav">
+        <li><a class="subheader">Die G'selligen Aurachtaler e. V.</a></li>
+        <li><a class="waves-effect" href="index.html"><i class="material-icons">home</i>Startseite</a>
+        </li>
+        <li><a class="waves-effect" href="termine.html"><i class="material-icons">event</i>Termine</a></li>
+        <li><a class="waves-effect" href="veranstaltungen.html"><i
+                    class="material-icons">directions_bus</i>Veranstaltungen</a></li>
+        <li><a class="waves-effect" href="vorstandschaft.html"><i class="material-icons">people</i>Vorstandschaft</a>
+        </li>
+        <li><a href="satzung.html" class="waves-effect"><i class="material-icons left">more_horiz</i>Satzung</a></li>
+        <li><a class="subheader">Rechtliches</a></li>
+        <li><a href="impressum.html" class="waves-effect grey lighten-3"><i
+                    class="material-icons left">info</i>Impressum</a></li>
+        <li><a href="datenschutzerklaerung.html" class="waves-effecttruncate"><i
+                    class="material-icons left">verified_user</i>Datenschutzerklärung</a></li>
+    </ul>
     <div class="navbar-fixed hide-on-large-only">
         <nav class="teal">
             <a href="#" data-target="slide-out" class="sidenav-trigger">
