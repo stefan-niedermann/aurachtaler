@@ -136,13 +136,13 @@
                 "Startseite",
                 "Termine",
                 "Veranstaltungen",
-                "Vorstandschaft",
+                "Vorstandschaft"
             ],
             "url": [
                 "https://aurachtaler.de/index.html",
                 "https://aurachtaler.de/termine.html",
                 "https://aurachtaler.de/veranstaltungen.html",
-                "https://aurachtaler.de/vorstandschaft.html",
+                "https://aurachtaler.de/vorstandschaft.html"
             ]
         }
         </script>
@@ -168,22 +168,75 @@
         ]
     }
     </script>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Weihnachtsfeier",
+        "startDate": "2019-12-07T19:30",
+        "location": {
+          "@type": "Place",
+          "name": "Gasthaus Gundel",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Barthelmesaurach",
+            "postalCode": "91126",
+            "addressCountry": "DE"
+          }
+        },
+        "image": [
+          "https://aurachtaler.de/img/veranstaltungen/weihnachtsfeier.jpg"
+         ],
+        "description": "Begleiten Sie uns bei einer sinnlichen Fackelwanderung im Dunkeln, um sich auf die ruhige Weihnachtszeit einzustellen"
+      }
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            var events = document.querySelectorAll('.event');
+            for (var eventIndex = 0; eventIndex < events.length; eventIndex++) {
+                var scriptTag = document.createElement('script');
+                scriptTag.setAttribute('type', 'application/ld+json');
+                scriptTag.innerHTML = JSON.stringify(
+                    {
+                        "@context": "https://schema.org",
+                        "@type": "Event",
+                        "name": events[eventIndex].querySelector('strong').innerText,
+                        "startDate": new Date(events[eventIndex].dataset.date).toISOString(),
+                        "location": {
+                            "@type": "Place",
+                            "name": events[eventIndex].querySelector('.location').innerText,
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": "Barthelmesaurach",
+                                "postalCode": "91126",
+                                "addressCountry": "DE"
+                            }
+                        },
+                        "image": [
+                            "https://aurachtaler.de/img/veranstaltungen/" + events[eventIndex].dataset.img + ".jpg"
+                        ]
+                    }
+                );
+                document.head.appendChild(scriptTag);
+            }
+        });
+    </script>
 
     <!-- Matomo -->
     <script type="text/javascript">
-      var _paq = window._paq || [];
-      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="https://tracking.niedermann.it/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '2']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
+        var _paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://tracking.niedermann.it/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
     </script>
-    <!-- End Matomo Code -->    
+    <!-- End Matomo Code -->
 </head>
 
 <body>
@@ -231,7 +284,7 @@
                 </div>
                 <div class="col s12 m6 l4 xl3">
                     <p class="month">Februar</p>
-                    <div class="event">
+                    <div class="event" data-img="jahreshauptversammlung" data-date="2019-02-16">
                         <strong>JHV</strong>
                         <span class="badge new date" data-badge-caption="">16. Februar</span>
                         <span class="location">Gasthaus Gundel</span>
@@ -245,9 +298,10 @@
                 </div>
                 <div class="col s12 m6 l4 xl3">
                     <p class="month">Mai</p>
-                    <div class="event">
+                    <div class="event" data-img="maiwanderung" data-date="2019-05-19">
                         <strong>Maiwanderung</strong>
                         <span class="badge new date" data-badge-caption="">19. Mai</span>
+                        <span class="location">Altes Feuerwehrhaus</span>
                     </div>
                 </div>
                 <div class="col s12 m6 l4 xl3">
@@ -255,7 +309,7 @@
                 </div>
                 <div class="col s12 m6 l4 xl3">
                     <p class="month">Juli</p>
-                    <div class="event">
+                    <div class="event" data-img="grillfest" data-date="2019-07-06">
                         <strong>Grillfest 🥩</strong>
                         <span class="badge new date" data-badge-caption="">06. Juli</span>
                         <span class="location">Altes Feuerwehrhaus</span>
@@ -266,7 +320,7 @@
                 </div>
                 <div class="col s12 m6 l4 xl3">
                     <p class="month">September</p>
-                    <div class="event">
+                    <div class="event" data-img="ueberraschungsfahrt" data-date="2019-09-15">
                         <strong>Fahrt nach Meiningen 🚌</strong>
                         <span class="badge new date" data-badge-caption="">15. September</span>
                         <span class="location">Dorfplatz</span>
@@ -280,7 +334,7 @@
                 </div>
                 <div class="col s12 m6 l4 xl3">
                     <p class="month">Dezember</p>
-                    <div class="event">
+                    <div class="event" data-img="weihnachtsfeier" data-date="2019-12-07">
                         <strong>Weihnachtsfeier 🎅</strong>
                         <span class="badge new date" data-badge-caption="">07. Dezember</span>
                         <span class="location">Gasthaus Gundel</span>
