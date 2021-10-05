@@ -19,10 +19,11 @@ jobs:
           find ./img/startseite -name '*.jpg' -exec mogrify -resize 1920x1920 -quality 35\> {} \;
       - name: Remove unnecessary files
         run: rm -r .github .git
-      - name: Push new bundle to remote
-        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mirror -R ./ ${{ github.sha }}; quit;" ${{ secrets.FTP_URL }}
-      - name: Remove old content except new bundle
+      - name: Pull .well-known
         continue-on-error: true
-        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; rm -x ${{ github.sha }} -r .; quit;" ${{ secrets.FTP_URL }}
-      - name: Deploy new bundle
-        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mv ${{ github.sha }}/* .; rm -r ${{ github.sha }}; quit;" ${{ secrets.FTP_URL }}
+        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mirror .well-known ./; quit;" ${{ secrets.FTP_URL }}
+      - name: Remove old bundle
+        continue-on-error: true
+        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; rm -r .; quit;" ${{ secrets.FTP_URL }}
+      - name: Push new bundle
+        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mirror -R . .; quit;" ${{ secrets.FTP_URL }}
