@@ -23,6 +23,6 @@ jobs:
         run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mirror -R ./ ${{ github.sha }}; quit;" ${{ secrets.FTP_URL }}
       - name: Remove old content except new bundle
         continue-on-error: true
-        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; rm -r . -x \"${{ github.sha }}\"; quit;" ${{ secrets.FTP_URL }}
+        run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; rm -r -x ${{ github.sha }} .; quit;" ${{ secrets.FTP_URL }}
       - name: Deploy new bundle
         run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mv ${{ github.sha }}/* .; rm -r ${{ github.sha }}; quit;" ${{ secrets.FTP_URL }}
