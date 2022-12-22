@@ -19,7 +19,7 @@
   },
   "homepage": "https://aurachtaler.de",
   "dependencies": {
-    "@materializecss/materialize": "^1.1.0-alpha",
-    "material-icons": "^1.8.1"
+    "@materializecss/materialize": "^1.2.1",
+    "material-icons": "^1.13.1"
   }
 }
