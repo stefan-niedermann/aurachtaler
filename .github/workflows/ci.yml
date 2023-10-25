@@ -14,16 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install dependencies
-        run: |
-          npm ci
-          sudo apt-get install imagemagick lftp
+        run: sudo apt-get install imagemagick lftp
       - name: Compress images
         run: |
           find ./img/veranstaltungen -name '*.jpg' -exec mogrify -resize 1920x1920 -quality 30\> {} \;
           find ./img/vorstandschaft -name '*.jpg' -exec mogrify -resize 1920x1920 -quality 40\> {} \;
           find ./img/startseite -name '*.jpg' -exec mogrify -resize 1920x1920 -quality 35\> {} \;
       - name: Remove unnecessary files
-        run: rm -r .github .git .gitignore package.json package-lock.json
+        run: rm -r .github .git .gitignore README LICENSE
       - name: Pull .well-known
         continue-on-error: true
         run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} -e "set ssl:verify-certificate no; mirror .well-known ./; quit;" ${{ secrets.FTP_URL }}

@@ -8,6 +8,16 @@
 			</cc:Work>
 		</rdf:RDF>
 	</metadata>
+	<style type="text/css">
+        :root {
+            color-scheme: dark light;
+        }
+
+		.text {
+			fill: CanvasText;
+			stroke: CanvasText;
+		}
+	</style>
 	<title>Niedermann IT-Dienstleistungen</title>
 	<!-- Linkes Quadrat oben -->
 	<path d="M50 10 L70 30 L50 50 L10 50 Z" stroke-width="0" fill="#007676"/>
@@ -23,9 +33,9 @@
 	<!-- Rechtes Quadrat unten -->
 	<path d="M180 50 L140 90 L120 70 L140 50 Z" stroke-width="0" fill="#007877"/>
 	<!-- NIEDERMANN -->
-	<text style="cursor: text;" xml:space="preserve" text-anchor="middle" font-size="50" y="50" x="367.5" font-family="Helvetica, Arial, sans-serif" stroke-width="0" stroke="#000" fill="#000000">NIEDERMANN</text>
+	<text class="text" style="cursor: text;" xml:space="preserve" text-anchor="middle" font-size="50" y="50" x="367.5" font-family="Helvetica, Arial, sans-serif" stroke-width="0" stroke="#000" fill="#000000">NIEDERMANN</text>
 	<!-- Trennlinie -->
-	<line x1="200" y1="60" x2="535" y2="60" stroke-width="2" stroke="#000" fill="none"/>
+	<line class="text" x1="200" y1="60" x2="535" y2="60" stroke-width="2" stroke="#000" fill="none"/>
 	<!-- IT-DIENSTLEISTUNGEN -->
-	<text style="cursor: text;" xml:space="preserve" text-anchor="middle" font-size="29.7" x="367.5" y="90" stroke-opacity="null" font-family="Helvetica, Arial, sans-serif" stroke-width="0" stroke="#000" fill="#000000">IT-DIENSTLEISTUNGEN</text>
+	<text class="text" style="cursor: text;" xml:space="preserve" text-anchor="middle" font-size="29.7" x="367.5" y="90" stroke-opacity="null" font-family="Helvetica, Arial, sans-serif" stroke-width="0" stroke="#000" fill="#000000">IT-DIENSTLEISTUNGEN</text>
 </svg>

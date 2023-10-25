@@ -1,0 +1,377 @@
+:root {
+    --spacer: 2rem;
+    --border-radius: .3rem;
+
+    color-scheme: dark light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+}
+
+body {
+    margin: 0;
+    line-height: 2;
+    hyphens: auto;
+}
+
+p,
+blockquote {
+    text-align: justify;
+}
+
+summary {
+    cursor: pointer;
+}
+
+a {
+    color: LinkText;
+}
+
+img,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    margin-top: var(--spacer);
+    text-align: center;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: .3rem solid Highlight;
+    padding: calc(var(--spacer) / 2);
+    margin: var(--spacer) 0;
+    border-radius: var(--border-radius);
+    color: color-mix(in srgb, HighlightText, CanvasText 93%);
+    background-color: color-mix(in srgb, Highlight, Canvas 93%);
+}
+
+blockquote::before,
+blockquote::after {
+    content: "\"";
+}
+
+blockquote cite {
+    float: right;
+}
+
+blockquote cite::before {
+    content: "\a— ";
+    white-space: pre;
+}
+
+section,
+footer,
+nav ul {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: var(--spacer);
+    box-sizing: border-box;
+}
+
+/******************************************/
+/* Header                                 */
+/******************************************/
+
+header {
+    background-image: url('./img/startseite/header.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 50vh;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-size: xxx-large;
+    line-height: 1;
+}
+
+/******************************************/
+/* Navigation                             */
+/******************************************/
+
+nav {
+    background: Canvas;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding: calc(var(--spacer) / 2);
+}
+
+nav li {
+    flex: 0 0 auto;
+}
+
+nav a {
+    padding: calc(var(--spacer) / 2);
+    display: block;
+    background-color: Canvas;
+    color: CanvasText;
+    font-size: large;
+    text-decoration: none;
+    transition:
+        color .3s ease,
+        background-color .3s ease;
+    border-radius: var(--border-radius);
+}
+
+nav a:hover {
+    background-color: Highlight;
+    color: HighlightText;
+}
+
+nav a:active,
+nav a:focus {
+    background: Highlight;
+    color: HighlightText;
+    border-radius: var(--border-radius);
+}
+
+@media (min-width: 600px) {
+    nav ul {
+        justify-content: space-evenly;
+    }
+
+    nav a {
+        font-size: larger;
+    }
+
+    nav a::before {
+        content: '➥';
+        display: inline-block;
+        margin-right: calc(var(--spacer) / 2);
+    }
+}
+
+/******************************************/
+/* Kalender                               */
+/******************************************/
+
+.calendar {
+    --calendar-day-border-color: GrayText;
+    --calendar-day-border-color: color-mix(in srgb, GrayText, Canvas);
+    --calendar-day-border: 1px solid var(--calendar-day-border-color);
+
+    --calendar-number-columns: 1;
+
+    display: grid;
+    grid-template-columns: repeat(var(--calendar-number-columns), 1fr);
+    font-size: large;
+}
+
+.calendar .month {
+    border-top: var(--calendar-day-border);
+    border-left: var(--calendar-day-border);
+    border-right: var(--calendar-day-border);
+    padding: calc(var(--spacer) / 2);
+    overflow-y: auto;
+}
+
+.calendar .month:last-child {
+    border-bottom: var(--calendar-day-border);
+}
+
+.calendar .month:not(:has(time)) {
+    display: none;
+}
+
+.calendar .month h3 {
+    font-size: medium;
+    font-weight: normal;
+    margin: 0;
+}
+
+.calendar strong {
+    display: block;
+}
+
+.calendar .day {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem;
+    background: Highlight;
+    color: HighlightText;
+    border-radius: var(--border-radius);
+    margin-top: calc(var(--spacer) / 2);
+}
+
+@media (min-width: 600px) {
+    .calendar .month {
+        min-height: 10rem;
+        height: 20vh;
+    }
+
+    .calendar .month:not(:has(time)) {
+        display: unset;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 979px) {
+    .calendar {
+        --calendar-number-columns: 2;
+    }
+
+    .calendar .month {
+        border-right: 0;
+    }
+
+    .calendar .month:nth-child(2n) {
+        border-right: var(--calendar-day-border);
+    }
+
+    .calendar .month:nth-last-child(-n+2) {
+        border-bottom: var(--calendar-day-border);
+    }
+}
+
+@media (min-width: 980px) and (max-width: 1279px) {
+    .calendar {
+        --calendar-number-columns: 3;
+    }
+
+    .calendar .month {
+        border-right: 0;
+    }
+
+    .calendar .month:nth-child(3n) {
+        border-right: var(--calendar-day-border);
+    }
+
+    .calendar .month:nth-last-child(-n+3) {
+        border-bottom: var(--calendar-day-border);
+    }
+}
+
+@media (min-width: 1280px) {
+    .calendar {
+        --calendar-number-columns: 4;
+    }
+
+    .calendar .month {
+        border-right: 0;
+    }
+
+    .calendar .month:nth-child(4n) {
+        border-right: var(--calendar-day-border);
+    }
+
+    .calendar .month:nth-last-child(-n+4) {
+        border-bottom: var(--calendar-day-border);
+    }
+}
+
+/******************************************/
+/* Veranstaltungen                        */
+/******************************************/
+
+.events {
+    --events-number-columns: 1;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacer);
+}
+
+.events article {
+    flex: 1 0 auto;
+    width: calc(100% / var(--events-number-columns) - var(--spacer));
+}
+
+@media (min-width: 600px) {
+    .events {
+        --events-number-columns: 2;
+    }
+}
+
+@media (min-width: 980px) {
+    .events {
+        --events-number-columns: 3;
+    }
+}
+
+/******************************************/
+/* Kommentare                             */
+/******************************************/
+
+@media (min-width: 980px) {
+    .comments {
+        display: flex;
+        gap: var(--spacer);
+    }
+
+    .comments blockquote {
+        flex: 1 1 50%;
+    }
+}
+
+/******************************************/
+/* Impressum                              */
+/******************************************/
+
+.imprint ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacer) * 2);
+    line-height: 1;
+}
+
+.imprint a {
+    text-decoration: none;
+    font-size: 4rem;
+    display: block;
+}
+
+@media (min-width: 980px) {
+    .imprint {
+        display: flex;
+        gap: var(--spacer);
+    }
+
+    .imprint,
+    .imprint p {
+        text-align: center;
+    }
+
+    .imprint article {
+        flex: 1 1 50%;
+    }
+
+    .imprint ul {
+        justify-content: center;
+        gap: calc(var(--spacer) / 4);
+    }
+    
+    .imprint ul a {
+        padding: calc(var(--spacer) / 2);
+    }
+
+    .imprint ul a:hover {
+        background-color: Highlight;
+        color: HighlightText;
+        border-radius: var(--border-radius);
+    }
+}

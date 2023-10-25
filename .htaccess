@@ -1,8 +1,15 @@
-ErrorDocument 404 /nicht-gefunden.html
+ErrorDocument 404 /index.html
 
-Redirect 301 /gaestebuch/ /index.html
-Redirect 301 /beitreten/ /index.html
-Redirect 301 /category/berichte/ /veranstaltungen.html
-Redirect 301 /satzung/ /satzung.html
-Redirect 301 /impressum/ /impressum.html
-Redirect 301 /datenschutzerklaerung/ /datenschutzerklaerung.html
+Redirect 301 /gaestebuch/ /index.html#ueber-uns
+Redirect 301 /beitreten/ /index.html#impressum
+Redirect 301 /category/berichte/ /index.html#veranstaltungen
+Redirect 301 /satzung/ /index.html#impressum
+Redirect 301 /impressum/ /index.html#impressum
+Redirect 301 /datenschutzerklaerung/ /index.html#impressum
+
+Redirect 301 /impressum.html /index.html
+Redirect 301 /datenschutzerklaerung.html /index.html#impressum
+Redirect 301 /satzung.html /index.html#impressum
+Redirect 301 /termine.html /index.html#impressum
+Redirect 301 /vorstandschaft.html /index.html#vorstandschaft
+Redirect 301 /veranstaltungen.html /index.html#veranstaltungen

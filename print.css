@@ -1,0 +1,97 @@
+:root {
+    --spacer: 2rem;
+}
+
+body {
+    line-height: 2;
+    hyphens: auto;
+}
+
+p {
+    text-align: justify;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header,
+section,
+footer {
+    margin: var(--spacer);
+}
+
+figure {
+    margin: 0;
+}
+
+figcaption {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+}
+
+nav {
+    display: none;
+}
+
+summary {
+    display: none;
+}
+
+section {
+    break-inside: avoid;
+}
+
+article {
+    break-inside: avoid;
+}
+
+blockquote {
+    font-style: italic;
+    margin: var(--spacer) 0;
+}
+
+blockquote::before,
+blockquote::after {
+    content: "\"";
+}
+
+blockquote cite {
+    float: right;
+}
+
+blockquote cite::before {
+    content: "\a— ";
+    white-space: pre;
+}
+
+.calendar .month:not(:has(time)) {
+    display: none;
+}
+
+.calendar .month h3 {
+    margin-bottom: 0;
+}
+
+.calendar .month .day {
+    display: block;
+}
+
+.events {
+    column-count: 2;
+    column-gap: var(--spacer);
+}
+
+@media (orientation: landscape) {
+    .events {
+        column-count: 3;
+    }
+}
+
+.imprint a::after {
+    content: " " attr(title);
+}
