@@ -17,9 +17,9 @@ jobs:
         run: sudo apt-get install imagemagick lftp
       - name: Compress images
         run: |
-          find ./img/veranstaltungen -name '*.jpg' -exec mogrify -resize 384x384 -quality 40\> {} \;
-          find ./img/vorstandschaft -name '*.jpg' -exec mogrify -resize 1216x1216 -quality 40\> {} \;
-          find ./img/startseite -name '*.jpg' -exec mogrify -resize 1920x1920 -quality 35\> {} \;
+          find ./img/veranstaltungen -name '*.jpg' -exec mogrify -resize 384x384 -quality 80\> {} \;
+          find ./img/vorstandschaft -name '*.jpg' -exec mogrify -resize 1216x1216 -quality 80\> {} \;
+          find ./img/startseite -name '*.jpg' -exec mogrify -resize 1920x1920 -quality 80\> {} \;
       - name: Remove unnecessary files
         run: rm -r .github .git .gitignore README.md LICENSE
       - name: Pull .well-known
