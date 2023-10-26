@@ -1,4 +1,4 @@
-Header set Content-Security-Policy "default-src 'self'; script-src 'unsafe-inline' https://tracking.niedermann.it"
+Header set Content-Security-Policy "default-src 'self'; connect-src https://tracking.niedermann.it; script-src 'unsafe-inline' https://tracking.niedermann.it"
 Header set Referrer-Policy "no-referrer"
 Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 Header set X-Content-Type-Options "nosniff"
