@@ -1,5 +1,7 @@
 :root {
     --spacer: 2rem;
+
+    font-family: system-ui, sans-serif;
 }
 
 body {

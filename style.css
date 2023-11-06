@@ -2,6 +2,7 @@
     --spacer: 2rem;
     --border-radius: .3rem;
 
+    font-family: system-ui, sans-serif;
     color-scheme: dark light;
     scroll-behavior: smooth;
     scroll-padding-top: 3rem;
